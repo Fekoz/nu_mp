@@ -1,0 +1,24 @@
+version: "3.4"
+
+services:
+    
+  service_marketplace:
+    container_name: service_marketplace
+    build:
+      context: .
+      target: spring
+      dockerfile: ./Dockerfile
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      OZON_TOKEN: cb___
+      OZON_CLIENT_ID: ___
+      SPRING_RABBITMQ_HOST: system_queue
+      OZON_WAREHOUSE_MGT_ID: ___
+      OZON_WAREHOUSE_KGT_ID: 0
+    networks:
+      - carpetti_dev
+
+networks:
+  carpetti_dev:
+    external: true

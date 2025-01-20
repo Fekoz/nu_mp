@@ -1,0 +1,30 @@
+version: "3.4"
+
+services:
+    
+  service_marketplace:
+    container_name: service_marketplace
+    build:
+      context: .
+      target: spring
+      dockerfile: ./Dockerfile
+    restart: unless-stopped
+    environment:
+      OZON_TOKEN: cb___
+      OZON_CLIENT_ID: ___
+      OZON_WAREHOUSE_MGT_ID: ___
+      OZON_WAREHOUSE_KGT_ID: 0
+      OZON_SCHEDULE_SEND-TASKID-TO-QUEUE-IN-SECONDS: 10
+      SPRING_RABBITMQ_HOST: system_queue
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: rabbitmq
+      SPRING_RABBITMQ_PASSWORD: rabbitmq
+      SPRING_RABBITMQ_VIRTUALHOST: /
+      SPRING_RABBITMQ_QUEUE: run.send.mp
+      SPRING_PROFILES_ACTIVE: prod
+    networks:
+      - carpetti_prod
+
+networks:
+  carpetti_prod:
+    external: true

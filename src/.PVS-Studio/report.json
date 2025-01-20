@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "warnings": [
+    {
+      "code": "V061",
+      "cwe": 0,
+      "level": 0,
+      "positions": [],
+      "message": "Unable to start the analysis on \u0027marketplace-seller\u0027 module. By cause: \u0027org/springframework/boot/SpringApplication has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0\u0027.",
+      "projects": [],
+      "favorite": false,
+      "falseAlarm": false
+    }
+  ]
+}
